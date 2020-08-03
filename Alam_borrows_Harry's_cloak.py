@@ -4,7 +4,7 @@ import time
 import numpy as np
 # # PREPARATION FOR WRITING THE VIDEO
 fourcc = cv2.VideoWriter_fourcc(*'XVID')
-out = cv2.VideoWriter('output.avi', fourcc , 20.0 , (640,480))
+op = cv2.VideoWriter('output.avi', fourcc , 20.0 , (640,480))
 # # READING FROM WEBCAM
 cap = cv2.VideoCapture(0)
 # # ALLOW SYS TO SLEEP FOR 3 sec BEFORE WEBCAM STARTS
@@ -44,12 +44,12 @@ while(cap.isOpened()):
 # # SHOWING STATIC BACKGROUND ONLY FOR MASKED REGION
     res2 = cv2.bitwise_and(background , background , mask = mask_1)
 # # WRITING FINAL OUTPUT
-    finalOutput = cv2.addWeighted(res1, 1 , res2 , 1, 0)
-    out.write(finalOutput)
+    final_op = cv2.addWeighted(res1, 1 , res2 , 1, 0)
+    op.write(finalOutput)
 # # THE FINAL SHOW
-    cv2.imshow("magic" , finalOutput)
+    cv2.imshow("aabrakadabra" , final_op)
     cv2.waitKey(5)
 # # RELEASE and DESTROY(windows)
 cap.release()
-out.release()
+op.release()
 cv2.destroyAllWindows()
